@@ -1,26 +1,39 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/*
+ * Paleta de la tienda. Base clara y neutra para que las fotos de producto
+ * manden, con un violeta de marca y un lima de acento bien "nerd" para
+ * badges y precios.
+ */
+@theme {
+  --color-tinta: #0f0f12;
+  --color-tinta-suave: #52525b;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-marca-50: #f5f3ff;
+  --color-marca-100: #ede9fe;
+  --color-marca-500: #7c3aed;
+  --color-marca-600: #6d28d9;
+  --color-marca-700: #5b21b6;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-acento: #c8f531;
+  --color-acento-oscuro: #4d7c0f;
+
+  --color-humo: #f6f6f7;
+  --color-borde: #e4e4e7;
+  --color-exito: #15803d;
+  --color-oferta: #be123c;
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #ffffff;
+  color: var(--color-tinta);
+  font-family: var(--font-sans);
+}
+
+/* Los precios y SKU se leen mejor con cifras de ancho fijo. */
+.tabular {
+  font-variant-numeric: tabular-nums;
 }

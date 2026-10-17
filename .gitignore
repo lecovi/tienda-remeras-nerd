@@ -32,6 +32,12 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+!.env.example
+
+# prisma
+/lib/generated/prisma
+*.db
+*.db-journal
 
 # vercel
 .vercel
@@ -39,3 +45,14 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Imágenes que genera el asistente de diseño. Se recrean solas, y en producción
+# van a un blob store, no al repositorio. Ver "Asistente de diseño" en el README.
+/public/productos/generados/
+
+# Skills de Prisma para asistentes de IA, que baja `prisma init`. Son
+# documentación de terceros (500 KB) y nada del proyecto las usa.
+/.agents/
+/.claude/
+/.windsurf/
+/skills-lock.json
