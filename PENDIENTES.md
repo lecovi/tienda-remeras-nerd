@@ -114,8 +114,28 @@ store (S3, Vercel Blob, R2).
 - La tabla `Session` no se usa (las sesiones son JWT).
 - No hay "Más vendidos".
 - No hay roles intermedios: solo `USER` y `ADMIN`.
-- Quedan 5 vulnerabilidades de npm (severidad alta), del toolchain de
-  desarrollo. Sin revisar.
+
+---
+
+## 9. Vulnerabilidades de npm (revisar)
+
+`npm audit` marca **4 paquetes en producción** (`--omit=dev`) y 9 en total.
+GitHub tiene 8 alertas abiertas de Dependabot.
+
+En producción:
+
+- `next-auth` y `@auth/prisma-adapter` (y su dependencia `@auth/core`) —
+  severidad alta, **sin arreglo disponible todavía**.
+- `nodemailer` — severidad alta, sin arreglo. El aviso real es "Message-level
+  raw option bypasses disableFileAccess/disableUrlAccess, enabling arbitrary
+  file read". Nuestro código no usa la opción `raw`, así que la exposición es
+  baja, pero conviene seguir el parche.
+
+En desarrollo, además: `eslint-config-next`, `@next/eslint-plugin-next`,
+`braces`, `fast-glob` y `micromatch`. Estos sí tienen arreglo.
+
+No se corrió `npm audit fix` a propósito: puede traer cambios incompatibles y
+merece una revisión aparte.
 
 ---
 
