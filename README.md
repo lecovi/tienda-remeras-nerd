@@ -8,6 +8,9 @@ El look & feel está inspirado en
 grilla de productos con badges de descuento y envío gratis, filtros laterales,
 cuotas sin interés y botón de WhatsApp.
 
+Documentos: [`DECISIONES.md`](DECISIONES.md) cuenta por qué está hecho así y qué
+caminos se descartaron; [`PENDIENTES.md`](PENDIENTES.md), qué falta.
+
 ---
 
 ## Puesta en marcha
